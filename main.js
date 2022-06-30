@@ -1,12 +1,13 @@
-function tocaSom(index) {
-    const sons = document.querySelectorAll("audio");
-    sons[index].play();
-}
-
 const teclas = document.querySelectorAll(".tecla");
 
-teclas.forEach((obj, index) => {
+teclas.forEach((obj) => {
     obj.addEventListener("click", () => {
-        tocaSom(index);
+        tocaSom(obj);
     });
 });
+function tocaSom(obj) {
+    const sons = document.querySelectorAll("audio");
+    const index = [...teclas].indexOf(obj);
+
+    sons[index].play();
+}
